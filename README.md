@@ -104,7 +104,7 @@ There are some plugins that I install for my vim
 
 [ReactOnRails](https://github.com/shakacode/react_on_rails)
 
-####Installing####
+#### Installing ####
 
 
 1. New Rails app: rails new my-app --webpack=react. cd into the directory.
