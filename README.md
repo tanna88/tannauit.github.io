@@ -21,6 +21,16 @@ Then I add following config
 	map <leader>to :tabonly<cr>
 	map <leader>tc :tabclose<cr>
 	map <leader>tm :tabmove
+
+  set number
+  set colorcolumn=80
+
+  let g:UltiSnipsExpandTrigger           = '<tab>'
+  let g:UltiSnipsJumpForwardTrigger      = '<tab>'
+  let g:UltiSnipsJumpBackwardTrigger     = '<s-tab>'
+  let g:ycm_key_list_select_completion   = ['<C-j>', '<C-n>', '<Down>']
+  let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
+
 	"COPY to clipboard"
 	set clipboard+=unnamed
 	vmap <C-c> "+yi
@@ -87,6 +97,8 @@ There are some plugins that I install for my vim
 [vim-colors-solarized](https://github.com/altercation/vim-colors-solarized)
 
 [vim-yankstack.vim](https://github.com/maxbrunsfeld/vim-yankstack)
+
+[YouCompleteMe](https://github.com/Valloric/YouCompleteMe)
 
 ## REACT ##
 
