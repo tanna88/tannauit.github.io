@@ -100,6 +100,8 @@ There are some plugins that I install for my vim
 
 [YouCompleteMe](https://github.com/Valloric/YouCompleteMe)
 
+[Numbers](https://github.com/myusuf3/numbers.vim)
+
 ## REACT ##
 
 [react-redux-links](https://github.com/markerikson/react-redux-links)
