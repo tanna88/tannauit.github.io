@@ -7,7 +7,7 @@ Then I add following config
 
 	"CUSTOME FROM HERE"
 	"=============="
-	
+
 	"GENERAL"
 	"=============="
 	execute pathogen#infect()
@@ -36,27 +36,27 @@ Then I add following config
 	let g:solarized_termcolors=256
 	colorscheme solarized
 	"=============="
-	
+
 	"MRU"
 	"============"
 	map <leader>f :MRU<CR>
 	"============"
-	
+
 	"NERDTREE"
 	"============"
 	map <C-n> :NERDTreeToggle<CR>
 	"============"
-	
+
 	"CtrP"
 	"============"
 	let g:ctrlp_map = '<c-p>'
 	"============"
-	
+
 	"ACK"
 	"============"
 	map <leader>g :Ack
 	"============"
-	
+
 	"yankStack"
 	"============"
 	call yankstack#setup()
@@ -99,6 +99,11 @@ There are some plugins that I install for my vim
 [Boilerplates and Starter Kits - Full-Featured](https://github.com/davezuko/react-redux-starter-kit)
 
 
+## React Native ##
+
+[React Native](https://github.com/facebook/react-native)
+[react-native-redux-starter-kit](https://github.com/LeoLeBras/react-native-redux-starter-kit)
+[React Native Seed](https://github.com/GeekyAnts/react-native-boilerplate-redux-typescript)
 
 ## REACT On RAILS ##
 
