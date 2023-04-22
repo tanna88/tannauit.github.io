@@ -7,7 +7,7 @@ Then I add following config
 
 	"CUSTOME FROM HERE"
 	"=============="
-
+	
 	"GENERAL"
 	"=============="
 	execute pathogen#infect()
@@ -46,27 +46,27 @@ Then I add following config
 	let g:solarized_termcolors=256
 	colorscheme solarized
 	"=============="
-
+	
 	"MRU"
 	"============"
 	map <leader>f :MRU<CR>
 	"============"
-
+	
 	"NERDTREE"
 	"============"
 	map <C-n> :NERDTreeToggle<CR>
 	"============"
-
+	
 	"CtrP"
 	"============"
 	let g:ctrlp_map = '<c-p>'
 	"============"
-
+	
 	"ACK"
 	"============"
 	map <leader>g :Ack
 	"============"
-
+	
 	"yankStack"
 	"============"
 	call yankstack#setup()
@@ -131,3 +131,243 @@ There are some plugins that I install for my vim
 3. Run the generator: rails generate react_on_rails:install --redux
 4. Start the app: rails s
 5. Visit http://localhost:3000/hello_world
+## Setup new Mac ##
+1. install apps
+- Chrome -> set default
+- vivify
+- twist
+- toggle
+- slack
+- authy
+- iterm2 ( setup theme )
+
+2. Install codeing
+- brew: https://brew.sh/
+
+- git: `brew install git`
+
+- ssh: `ssh-keygen -t ed25519 -C “xx”`
+
+- tmux: `brew install tmux`
+
+- vim: https://github.com/remitano/janus-plus-oss
+
+- python:
+  `brew install python3`
+  echo "alias pip=pip3" >> ~/.zprofile
+
+- neovim:
+  `brew install neovim`
+  echo "alias vim=nvim" >> ~/.zprofile
+
+- asdf:
+  `brew install coreutils curl git`
+  `brew install asdf`
+  echo ". /opt/homebrew/opt/asdf/libexec/asdf.sh" >> ~/.zprofile
+  `asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git`
+  `asdf install nodejs 20.0.0`
+  `asdf global nodejs latest`
+  `brew install gpg gawk`
+  echo 'PATH="/opt/homebrew/opt/gawk/libexec/gnubin:$PATH"' >> ~/.zprofile
+
+- tig
+
+```
+brew install tig
+```
+
+## Setup new Mac ##
+1. install apps
+- Chrome -> set default
+- vivify
+- twist
+- toggle
+- slack
+- authy
+- iterm2 ( setup theme )
+
+2. Install coding
+- brew: https://brew.sh/
+
+- git:
+
+  ```
+  brew install git
+  ```
+
+- Oy my zssh
+
+  ```
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  ```
+
+
+
+- ssh:
+
+  ```
+  ssh-keygen -t ed25519 -C “youremail@email.com”
+  ```
+
+
+
+- Ack
+
+  ```
+  brew install ack
+  ack --create-ackrc >> ~/.ackrc
+  ```
+
+- tmux:
+
+  ```
+  brew install tmux
+  ```
+
+- vim: https://github.com/remitano/janus-plus-oss
+
+  - fix LeaderF
+
+    ```
+    pip3 install --user --upgrade neovim
+    ```
+
+    
+
+- python:
+
+  ```
+  brew install pyenv
+  pyenv install 2.7.18
+  pyenv install 3.9.10
+  pyenv global 3.9.10
+  pyenv versions
+  ```
+
+- neovim:
+  ````
+  brew install neovim
+  echo "alias vim=nvim" >> ~/.zprofile
+  ````
+
+- asdf:
+```
+brew install coreutils curl git
+brew install asdf
+echo ". /opt/homebrew/opt/asdf/libexec/asdf.sh" >> ~/.zprofile
+```
+```
+asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git
+asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+asdf install nodejs 20.0.0
+asdf global nodejs latest
+brew install gpg gawk
+echo 'PATH="/opt/homebrew/opt/gawk/libexec/gnubin:$PATH"' >> ~/.zprofile
+```
+- tig:
+```
+brew install tig
+```
+
+- Dot files:
+
+```
+curl https://raw.githubusercontent.com/tanna88/tannauit.github.io/master/dotfiles/.tmate.conf --output ~/.tmate.conf
+curl https://raw.githubusercontent.com/tanna88/tannauit.github.io/master/dotfiles/.tmux.conf --output ~/.tmux.conf
+curl https://raw.githubusercontent.com/tanna88/tannauit.github.io/master/dotfiles/.vimrc.after --output ~/.vimrc.after
+```
+
+- Development
+
+  ```
+  brew install postgresql@11
+  echo 'export PATH="/opt/homebrew/opt/postgresql@11/bin:$PATH"' >> ~/.zprofile
+  export LDFLAGS="-L/opt/homebrew/opt/postgresql@11/lib"
+  export CPPFLAGS="-I/opt/homebrew/opt/postgresql@11/include"
+  brew services restart postgresql@11
+  ```
+
+  ```
+  brew install redis
+  brew services start redis
+  ```
+
+  ```
+  brew install memcached
+  brew services restart memcached
+  ```
+
+  ```
+  brew install imagemagick
+  ```
+
+
+
+3. Install project
+
+- Notes for M2
+  - Required notejs version 14.16 or above
+
+some dependencies
+
+```
+brew install haproxy
+npm install -g yarn
+```
+
+```
+pyenv install 2.7.18
+pyenv install 3.9.10
+pyenv global 2.7.18
+pyenv shims
+asdf install
+gem install bundler
+```
+
+```
+curl https://raw.githubusercontent.com/tanna88/tannauit.github.io/master/dotfiles/.bundle/config --output ~/.bundle/config
+```
+
+Remember update correct key in bundle config
+
+- fix installing PG error
+
+  ```
+  brew install libpq
+  gem install pg -v '1.2.3' --user-install -- --with-pg-config=/opt/homebrew/Cellar/libpq/15.2/bin/pg_config
+  ```
+
+- Fix openssl
+
+  ```
+  brew install openssl@1.1
+  ```
+
+  check version by try cd to
+
+  ```
+  cd /opt/homebrew/Cellar/openssl@1.1
+  cd tab & enter
+  cd tab & enter
+  pwd
+  ```
+
+  EX: the output /opt/homebrew/Cellar/openssl@1.1/1.1.1t/lib
+
+  ```
+  ln -s /opt/homebrew/Cellar/openssl@1.1/1.1.1t/lib/libssl.1.1.dylib /usr/local/lib/libssl.so.1.0.0.dylib
+  ln -s /opt/homebrew/Cellar/openssl@1.1/1.1.1t/lib/libcrypto.1.1.dylib /usr/local/lib/libcrypto.1.0.0.dylib
+  ```
+- Fix rgrpc error
+
+  ```
+  bundle config set force_ruby_platform true
+  gem uninstall -aIx
+  bundle install
+  ```
+
+- Fix can not install puppeteer
+
+  ```text
+  brew install chromium
+  ```
