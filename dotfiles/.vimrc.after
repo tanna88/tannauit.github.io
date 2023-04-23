@@ -1,0 +1,78 @@
+let test#strategy = "neovim"
+let test#ruby#cucumber#executable = 'DEVTOOLS=1 ./bin/cucumber'
+nmap <silent> <leader>t :TestNearest<CR>
+nmap <silent> t<C-n> :TestNearest<CR> " t Ctrl+n
+nmap <silent> t<C-f> :TestFile<CR>    " t Ctrl+f
+nmap <silent> t<C-s> :TestSuite<CR>   " t Ctrl+s
+nmap <silent> t<C-l> :TestLast<CR>    " t Ctrl+l
+nmap <silent> t<C-g> :TestVisit<CR>   " t Ctrl+g
+
+nmap <silent> <Leader>n :NERDTreeFind<CR>
+
+if has('nvim')
+ tnoremap <Esc> <C-\><C-n>
+ tnoremap <M-[> <Esc>
+ tnoremap <C-v><Esc> <Esc>
+endif
+
+set clipboard+=unnamedplus
+
+function! s:SID()
+ if ! exists('s:sid')
+   let s:sid = matchstr(expand('<sfile>'), '<SNR>\zs\d\+\ze_SID$')
+ endif
+ return s:sid
+endfunction
+let s:SNR = '<SNR>'.s:SID().'_'
+
+call NERDTreeAddKeyMap({
+     \ 'key': 'w',
+     \ 'callback': s:SNR.'toggle_width',
+     \ 'quickhelpText': 'Toggle window width' })
+
+function! s:toggle_width()
+ let l:max = 0
+ for l:z in range(1, line('$'))
+   let l:len = len(getline(l:z))
+   if l:len > l:max
+     let l:max = l:len
+   endif
+ endfor
+ exe 'vertical resize '.(l:max == winwidth('.') ? g:NERDTreeWinSize : l:max)
+endfunction
+
+noremap <C-S> :update<CR>
+vnoremap <C-S> <C-C>:update<CR>
+inoremap <C-S> <C-O>:update<CR>
+nnoremap ,w :update<CR>
+nnoremap <Leader>w :update<CR>
+nnoremap ,q :bdelete<CR>
+nnoremap <Leader>q :bdelete<CR>
+
+cnoreabbrev Ack Ack!
+nnoremap <Leader>f :Ack!<Space>
+
+noremap <leader>a :Neoformat<CR>
+
+noremap <silent> <C-F> :<C-U><C-R>=printf("Ack! %s ", expand("<cword>"))<CR><CR>
+
+set background=light   " Setting light mode
+
+let g:ale_linters_explicit = 1
+let g:ale_linters = { 'javascript': ['eslint'], 'ruby': ['rubocop'] }
+" Only run lint when save file
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_insert_leave = 0
+" You can disable this option too
+" if you don't want linters to run on opening a file
+let g:ale_lint_on_enter = 0
+
+
+" Gitglame
+nnoremap <Leader>gb :Git blame<CR>
+" dup Quote word
+:nnoremap <Leader>" dt,i"<C-r>""<Esc>
+:nnoremap <Leader>S dt,iutil.ToString(<C-r>")<Esc>
+:nnoremap <Leader>F dt,iutil.ToFloat64(<C-r>")<Esc>
+
+autocmd BufRead,BufNewFile *.arb setfiletype ruby
